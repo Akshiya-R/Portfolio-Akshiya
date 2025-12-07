@@ -162,9 +162,8 @@
 
 // export default Contact
 
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import emailjs from '@emailjs/browser';
 
 const Container = styled.div`
   display: flex;
@@ -302,8 +301,6 @@ const SuccessMessage = styled.div`
 `;
 
 const Contact = () => {
-  const [open, setOpen] = useState(false);
-  const form = useRef();
   const [result, setResult] = React.useState("");
 
   const handleSubmit = async (event) => {
@@ -348,7 +345,7 @@ const Contact = () => {
       <Wrapper>
         <Title>Contact</Title>
         <Desc>Feel free to reach out to me for any questions or opportunities!</Desc>
-        <ContactForm ref={form} onSubmit={handleSubmit}>
+        <ContactForm onSubmit={handleSubmit}>
           <ContactTitle>Email Me 🚀</ContactTitle>
           <ContactInput placeholder="Your Email" name="from_email" type="email" required />
           <ContactInput placeholder="Your Name" name="from_name" type="text" required />
